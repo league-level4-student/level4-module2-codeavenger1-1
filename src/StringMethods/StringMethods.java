@@ -1,7 +1,9 @@
 package StringMethods;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Collections;
 
 /*
 Visit the JavaDocs for the String class to view everything you can do with a String.  
@@ -32,13 +34,27 @@ public class StringMethods {
 
 	// Given Strings s1 and s2, return the longer String
 	public static String longerString(String s1, String s2) {
-		return null;
+		if(s1.length() > s2.length()) {
+			return s1;
+		}
+		else {
+		return s2;
 	}
+		}
 
 	
 	// if String s contains the word "underscores", change all of the spaces to underscores
 	public static String formatSpaces(String s) {
-		return null;
+		String newS = "";
+		if(s.contains("underscores")) {
+			newS = s.replace(" ", "_");
+			return newS;
+		}
+		else {
+			return s;
+		}
+		
+		
 	}
 
 	
@@ -46,12 +62,48 @@ public class StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
-		return null;
-	}
+		String trim = s1.trim();
+		String trim2 = s2.trim();
+		String trim3 = s3.trim();
+		System.out.println(trim2);
+		
+		
+		String [] array = trim.split(" ");
+		String [] array2 = trim2.split(" ");
+		String [] array3 = trim3.split(" ");
+		
+//		System.out.println(array.length);
+//		System.out.println(array2.length);
+//		System.out.println(array3.length);
+		ArrayList<String> index = new ArrayList<String>(); 
+		index.add(array[1]);
+		index.add(array2[1]);
+		index.add(array3[1]);
+	
+		Collections.sort(index);
+		
+		if(array[1].equals(index.get(0))) {
+			//System.out.println(s1);
+			return trim;
+		}
+		
+		else if(array2[1].equals(index.get(0))) {
+			//System.out.println(s2);
+			return trim2;
+		}
+		
+		else {
+		//System.out.println(s3);
+			return trim3;
+	}	
+		}
 	
 	
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
+		if(Character.isDigit(ch)) {
+			
+		}
 		return 0;
 	}
 	
