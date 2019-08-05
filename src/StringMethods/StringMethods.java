@@ -72,9 +72,6 @@ public class StringMethods {
 		String [] array2 = trim2.split(" ");
 		String [] array3 = trim3.split(" ");
 		
-//		System.out.println(array.length);
-//		System.out.println(array2.length);
-//		System.out.println(array3.length);
 		ArrayList<String> index = new ArrayList<String>(); 
 		index.add(array[1]);
 		index.add(array2[1]);
@@ -83,17 +80,14 @@ public class StringMethods {
 		Collections.sort(index);
 		
 		if(array[1].equals(index.get(0))) {
-			//System.out.println(s1);
 			return trim;
 		}
 		
 		else if(array2[1].equals(index.get(0))) {
-			//System.out.println(s2);
 			return trim2;
 		}
 		
 		else {
-		//System.out.println(s3);
 			return trim3;
 	}	
 		}
@@ -101,16 +95,29 @@ public class StringMethods {
 	
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
-		if(Character.isDigit(ch)) {
+		int sum = 0;
+		for (int i = 0; i < s.length(); i++) {
+			if (Character.isDigit(s.charAt(i))) {
+				sum+=(int)s.charAt(i)-48;
 			
+				}	
 		}
-		return 0;
+		
+		return sum;
 	}
 	
 	
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
-		return 0;
+		int num = 0;
+		for (int i = 0; i < s.length(); i++) {
+			if (s.contains(substring)) {
+				num+=(int)s.charAt(i)-48;
+		
+			System.out.println(num);
+		}	
+		}
+		return num;
 	}
 
 	// Call Utitilities.encrypt to encrypt String s
