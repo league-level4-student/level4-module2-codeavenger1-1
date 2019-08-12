@@ -140,6 +140,16 @@ public class StringMethods {
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
+		int num = 0;
+		
+		for (int i = 0; i < s.length(); i++) {
+			if (condition) {
+				
+			}
+		}
+		
+		
+		
 		return 0;
 	}
 	
