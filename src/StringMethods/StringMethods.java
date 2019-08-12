@@ -65,7 +65,7 @@ public class StringMethods {
 		String trim = s1.trim();
 		String trim2 = s2.trim();
 		String trim3 = s3.trim();
-		System.out.println(trim2);
+		
 		
 		
 		String [] array = trim.split(" ");
@@ -110,24 +110,30 @@ public class StringMethods {
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
 		int num = 0;
-		for (int i = 0; i < s.length(); i++) {
-			if (s.contains(substring)) {
-				num+=(int)s.charAt(i)-48;
+		int index = 0;
 		
-			System.out.println(num);
+		while(s.contains(substring)){
+		index = s.indexOf(substring);
+		num++;
+		s = s.substring(index+substring.length());
 		}	
-		}
+		
 		return num;
 	}
 
 	// Call Utitilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
-		return null;
+		byte[] array = s.getBytes();
+		byte cast = (byte)key;
+		
+		return Utilities.encrypt(array, cast);
 	}
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
-		return null;
+		byte castt = (byte)key;
+		
+		return Utilities.decrypt(s, castt);
 	}
 
 
