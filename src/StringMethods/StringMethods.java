@@ -141,16 +141,15 @@ public class StringMethods {
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
 		int num = 0;
+		int index = 0;
 		
-		for (int i = 0; i < s.length(); i++) {
-			if (condition) {
-				
-			}
+		while(s.contains(substring+" ")) {
+			index = s.indexOf(substring+" ");
+			num++;
+			s = s.substring(index+substring.length());
 		}
-		
-		
-		
-		return 0;
+	
+		return num;
 	}
 	
 
@@ -158,7 +157,16 @@ public class StringMethods {
 	// of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-		return 0;
+		int num = 0;
+		int indexOne = 0;
+		int indexTwo = 0;
+		
+		indexOne = s.indexOf(substring )+ (substring.length());
+		indexTwo = s.lastIndexOf(substring);
+		
+		num = indexTwo-indexOne;
+
+		return num;
 	}
 
 
