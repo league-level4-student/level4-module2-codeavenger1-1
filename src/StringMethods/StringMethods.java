@@ -34,124 +34,115 @@ public class StringMethods {
 
 	// Given Strings s1 and s2, return the longer String
 	public static String longerString(String s1, String s2) {
-		if(s1.length() > s2.length()) {
+		if (s1.length() > s2.length()) {
 			return s1;
+		} else {
+			return s2;
 		}
-		else {
-		return s2;
 	}
-		}
 
-	
-	// if String s contains the word "underscores", change all of the spaces to underscores
+	// if String s contains the word "underscores", change all of the spaces to
+	// underscores
 	public static String formatSpaces(String s) {
 		String newS = "";
-		if(s.contains("underscores")) {
+		if (s.contains("underscores")) {
 			newS = s.replace(" ", "_");
 			return newS;
-		}
-		else {
+		} else {
 			return s;
 		}
-		
-		
+
 	}
 
-	
-	// Return the name of the person whose LAST name would appear first if they were in alphabetical order
+	// Return the name of the person whose LAST name would appear first if they were
+	// in alphabetical order
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
 		String trim = s1.trim();
 		String trim2 = s2.trim();
 		String trim3 = s3.trim();
-		
-		
-		
-		String [] array = trim.split(" ");
-		String [] array2 = trim2.split(" ");
-		String [] array3 = trim3.split(" ");
-		
-		ArrayList<String> index = new ArrayList<String>(); 
+
+		String[] array = trim.split(" ");
+		String[] array2 = trim2.split(" ");
+		String[] array3 = trim3.split(" ");
+
+		ArrayList<String> index = new ArrayList<String>();
 		index.add(array[1]);
 		index.add(array2[1]);
 		index.add(array3[1]);
-	
+
 		Collections.sort(index);
-		
-		if(array[1].equals(index.get(0))) {
+
+		if (array[1].equals(index.get(0))) {
 			return trim;
 		}
-		
-		else if(array2[1].equals(index.get(0))) {
+
+		else if (array2[1].equals(index.get(0))) {
 			return trim2;
 		}
-		
+
 		else {
 			return trim3;
-	}	
 		}
-	
-	
+	}
+
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
 		int sum = 0;
 		for (int i = 0; i < s.length(); i++) {
 			if (Character.isDigit(s.charAt(i))) {
-				sum+=(int)s.charAt(i)-48;
-			
-				}	
+				sum += (int) s.charAt(i) - 48;
+
+			}
 		}
-		
+
 		return sum;
 	}
-	
-	
+
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
 		int num = 0;
 		int index = 0;
-		
-		while(s.contains(substring)){
-		index = s.indexOf(substring);
-		num++;
-		s = s.substring(index+substring.length());
-		}	
-		
+
+		while (s.contains(substring)) {
+			index = s.indexOf(substring);
+			num++;
+			s = s.substring(index + substring.length());
+		}
+
 		return num;
 	}
 
 	// Call Utitilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
 		byte[] array = s.getBytes();
-		byte cast = (byte)key;
-		
+		byte cast = (byte) key;
+
 		return Utilities.encrypt(array, cast);
 	}
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
-		byte castt = (byte)key;
-		
+		byte castt = (byte) key;
+
 		return Utilities.decrypt(s, castt);
 	}
-
 
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
 		int num = 0;
 		int index = 0;
-		
-		while(s.contains(substring+" ")) {
-			index = s.indexOf(substring+" ");
+
+		while (s.contains(substring + " ")) {
+			index = s.indexOf(substring + " ");
 			num++;
-			s = s.substring(index+substring.length());
+			s = s.substring(index + substring.length());
 		}
-	
+
 		return num;
 	}
-	
 
 	// Given String s, return the number of characters between the first occurrence
 	// of String substring and the final occurrence
@@ -160,27 +151,35 @@ public class StringMethods {
 		int num = 0;
 		int indexOne = 0;
 		int indexTwo = 0;
-		
-		indexOne = s.indexOf(substring )+ (substring.length());
+
+		indexOne = s.indexOf(substring) + (substring.length());
 		indexTwo = s.lastIndexOf(substring);
-		
-		num = indexTwo-indexOne;
+
+		num = indexTwo - indexOne;
 
 		return num;
 	}
-
 
 	// Return true if String s is a palindrome
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
+		String newS = "";
+		String string = "";
+
 		for (int i = 0; i < s.length(); i++) {
-			s.
+			if (Character.isLetter(s.charAt(i))) {
+				string += s.charAt(i);
+			}
 		}
-		
-		return true;
+
+		for (int i = string.length() - 1; i >= 0; i--) {
+			newS += string.charAt(i);
+		}
+
+		return newS.equalsIgnoreCase(string);
 	}
-	
+
 }
 
 class Utilities {
